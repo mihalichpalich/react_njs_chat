@@ -2,9 +2,13 @@
 
 .message {
   $self: &;
-  display: flex;
-  max-width: 440px;
-  margin-bottom: 15px;
+
+  &__content {
+    display: flex;
+    max-width: 440px;
+    margin-bottom: 15px;
+    position: relative;
+  }
 
   &__avatar {
     display: flex;
@@ -36,9 +40,37 @@
     opacity: 0.5;
   }
 
+  &__attachments {
+    display: flex;
+    margin-bottom: 5px;
+
+    &-item {
+      margin-right: 5px;
+      cursor: pointer;
+
+      img {
+        width: 45px;
+        height: 45px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+      }
+    }
+  }
+
   &__text {
     color: #fff;
     line-height: 20px;
+  }
+
+  &__icon-readed {
+    position: absolute;
+    bottom: 22px;
+    left: -25px;
+
+    &--no {
+      left: -20px;
+    }
   }
 
   &--isme {
