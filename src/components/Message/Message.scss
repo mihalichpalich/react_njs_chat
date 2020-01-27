@@ -13,26 +13,21 @@
   &__avatar {
     display: flex;
     flex-direction: column-reverse;
-
     img {
+      border-radius: 50px;
       width: 33px;
       height: 33px;
       margin-right: 13px;
-      margin-bottom: 23px;
-      -webkit-border-radius: 50px;
-      -moz-border-radius: 50px;
-      border-radius: 50px;
+      margin-bottom: 5px;
     }
   }
 
   &__bubble {
-    padding: 15px;
-    margin-bottom: 8px;
     background: $blue;
     box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.196733);
-    -webkit-border-radius: 12px 12px 12px 0;
-    -moz-border-radius: 12px 12px 12px 0;
-    border-radius: 12px 12px 12px 0;
+    border-radius: 12px 12px 12px 0px;
+    padding: 15px;
+    margin-bottom: 8px;
   }
 
   &__date {
@@ -40,27 +35,23 @@
     opacity: 0.5;
   }
 
-  &__attachments {
-    display: flex;
-    margin-bottom: 5px;
-
-    &-item {
-      margin-right: 5px;
-      cursor: pointer;
-
-      img {
-        width: 45px;
-        height: 45px;
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        border-radius: 8px;
-      }
-    }
-  }
-
   &__text {
     color: #fff;
     line-height: 20px;
+  }
+
+  &__attachments {
+    display: flex;
+    margin-bottom: 5px;
+    &-item {
+      margin-right: 5px;
+      cursor: pointer;
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
+      }
+    }
   }
 
   &__icon-readed {
@@ -77,33 +68,85 @@
     display: flex;
     flex-direction: row-reverse;
 
-    #{ $self }__content {
+    #{$self}__content {
+      margin-bottom: 15px;
       flex-direction: row-reverse;
-      text-align: right;
     }
 
-    #{ $self }__avatar {
+    #{$self}__avatar {
       img {
         margin-right: 0;
         margin-left: 13px;
       }
     }
 
-    #{ $self }__info {
+    #{$self}__info {
       text-align: right;
     }
 
-    #{ $self }__bubble {
+    #{$self}__bubble {
       background: #ffffff;
       border: 1px solid #ececec;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.0220444);
-      -webkit-border-radius: 12px 12px 0 12px;
-      -moz-border-radius: 12px 12px 0 12px;
-      border-radius: 12px 12px 0 12px;
-
-      #{ $self }__text {
+      border-radius: 12px 12px 0px 12px;
+      #{$self}__text {
         color: $black;
       }
     }
+  }
+
+  &--is-typing {
+    #{$self}__bubble {
+      background-color: $message-typing-blue;
+      box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.04);
+      padding: 15px 18px;
+      margin-bottom: 0;
+    }
+  }
+
+  &--image {
+    #{$self}__attachments {
+      &-item {
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    }
+  }
+
+  &__typing {
+    span {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background: $message-typing-circle;
+      display: inline-block;
+      margin-right: 8px;
+      animation: 0.8s typingAnimation infinite ease-out 0.1s;
+
+      &:nth-of-type(2) {
+        animation: 0.8s typingAnimation infinite ease-out 0.2s;
+      }
+      &:nth-of-type(3) {
+        animation: 0.8s typingAnimation infinite ease-out 0.3s;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@keyframes typingAnimation {
+  from {
+    opacity: 0.2;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-1.5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-1px);
   }
 }
