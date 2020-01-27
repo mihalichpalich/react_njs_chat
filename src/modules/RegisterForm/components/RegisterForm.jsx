@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {Form, Icon, Input} from "antd";
+
 import {Block, Button} from "../../../components";
+import {validateField} from "../../../utils/helpers";
 
 const success = false;
 
@@ -25,7 +27,7 @@ const RegisterForm = props => {
             </div>
             <Block>
                 {!success ? (<Form onSubmit={handleSubmit} className="login-form">
-                                <Form.Item validateStatus={!touched.email ? '' : errors.email ? 'error' : 'success'}
+                                <Form.Item validateStatus={validateField("email", touched, errors)}
                                            help={!touched.email ? '' : errors.email}
                                            hasFeedback>
                                     <Input
@@ -46,7 +48,7 @@ const RegisterForm = props => {
                                         size="large"
                                     />
                                 </Form.Item>
-                                <Form.Item validateStatus={!touched.password ? '' : errors.password ? 'error' : 'success'}
+                                <Form.Item validateStatus={validateField("password", touched, errors)}
                                            help={!touched.password ? '' : errors.password}
                                            hasFeedback>
                                     <Input
@@ -60,10 +62,10 @@ const RegisterForm = props => {
                                         onBlur={handleBlur}
                                     />
                                 </Form.Item>
-                                <Form.Item>
+                                <Form.Item validateStatus={validateField("password", touched, errors)}>
                                     <Input
                                         prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                        type="password"
+                                        type="password2"
                                         placeholder="Повторите пароль"
                                         size="large"
                                     />
