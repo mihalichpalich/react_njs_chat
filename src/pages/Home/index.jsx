@@ -9,7 +9,12 @@ const Home = () => {
     return (
         <section className="home">
             <div className="dialogs">
-                <DialogItem/>
+                <DialogItem user={{
+                        fullname: "Вован Зеленый",
+                        isOnline: true
+                        }}
+                    online
+                />
             </div>
             {/*<Dialogs items={[*/}
                 {/*{*/}
