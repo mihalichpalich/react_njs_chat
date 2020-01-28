@@ -1,5 +1,5 @@
 import React from 'react'
-import {DialogItem} from "../../components";
+import {Dialogs} from "../../components";
 
 import Message from "../../components/Message";
 
@@ -8,28 +8,33 @@ import './Home.scss';
 const Home = () => {
     return (
         <section className="home">
-            <div className="dialogs">
-                <DialogItem user={{
-                        fullname: "Вован Зеленый",
-                        isOnline: true
-                        }}
-                    online
-                />
-            </div>
-            {/*<Dialogs items={[*/}
-                {/*{*/}
-                    {/*user: {*/}
-                        {/*fullname: "Вован Зеленый",*/}
-                        {/*avatar: null,*/}
+            <Dialogs
+                userId={0}
+                items={[
+                    {
+                        _id: Math.random(),
+                        text: 'Если хочешь опровергнуть какую-нибудь глупость, не надо ее отрицать. Не надо. Доведи ее до абсурда. И тогда, знаете, все получится.',
+                        created_at: new Date(),
+                        user: {
+                            _id: 1,
+                            fullname: "Вован Зеленый",
+                            avatar: null,
 
-                    {/*},*/}
-                    {/*message: {*/}
-                        {/*text: 'Если хочешь опровергнуть какую-нибудь глупость, не надо ее отрицать. Не надо. Доведи ее до абсурда. И тогда, знаете, все получится.',*/}
-                        {/*isReaded: false,*/}
-                        {/*created_at: new Date()*/}
-                    {/*}*/}
-                {/*}*/}
-            {/*]}/>*/}
+                        }
+                    },
+                    {
+                        _id: Math.random(),
+                        text: 'Привет! Как дела?',
+                        created_at: new Date(),
+                        user: {
+                            _id: 1,
+                            fullname: "Леша Долматов",
+                            avatar: "https://yt3.ggpht.com/a/AGF-l78kifEeiIVi5CiCO0CmTYz86PcXbpPR0CsqaQ=s48-c-k-c0xffffffff-no-rj-mo",
+
+                        }
+                    }
+                ]}
+            />
             {/*<Message avatar="https://sun9-18.userapi.com/c851336/v851336258/16747e/7HsUkZOrEfo.jpg?ava=1"*/}
                      {/*text="Салам братка!"*/}
                      {/*date={new Date()}*/}
