@@ -64,6 +64,58 @@
     }
   }
 
+  &--is-audio {
+    #{$self}__bubble {
+      position: relative;
+      width: 280px;
+      overflow: hidden;
+    }
+
+    #{$self}__audio {
+      audio {
+        display: none;
+      }
+
+      &-info {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &-btn {
+        button {
+          width: 28px;
+          height: 28px;
+          border: 0;
+          border-radius: 30px;
+          background: #0f3997;
+          cursor: pointer;
+
+          img {
+            height: 13px;
+          }
+        }
+      }
+
+      &-duration {
+        color: #ffffff;
+        font-weight: 500;
+        opacity: 0.5;
+        font-size: 12px;
+      }
+
+      &-progress {
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #418fff;
+        transition: width 0.3s ease;
+      }
+    }
+  }
+
   &--isme {
     display: flex;
     flex-direction: row-reverse;

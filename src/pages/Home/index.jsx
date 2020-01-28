@@ -1,8 +1,6 @@
-import React from 'react'
-import {Dialogs} from "../../components";
+import React from 'react';
 
-import Message from "../../components/Message";
-
+import {Dialogs, Message} from "../../components";
 import './Home.scss';
 
 const Home = () => {
@@ -12,28 +10,32 @@ const Home = () => {
                 userId={0}
                 items={[
                     {
-                        _id: Math.random(),
+                        _id: "0fa7e7578aba1356bc6c0b021921efb1",
                         text: 'Если хочешь опровергнуть какую-нибудь глупость, не надо ее отрицать. Не надо. Доведи ее до абсурда. И тогда, знаете, все получится.',
                         created_at: new Date(),
                         user: {
-                            _id: 1,
+                            _id: "0fa7e7578aba1356bc6c0b021921efb1",
                             fullname: "Вован Зеленый",
                             avatar: null,
 
                         }
                     },
                     {
-                        _id: Math.random(),
+                        _id: "0fa7e7578aba1356bc6c0b021921efb1",
                         text: 'Привет! Как дела?',
                         created_at: new Date(),
                         user: {
-                            _id: 1,
+                            _id: "0fa7e7578aba1356bc6c0b021921efb1",
                             fullname: "Леша Долматов",
                             avatar: "https://yt3.ggpht.com/a/AGF-l78kifEeiIVi5CiCO0CmTYz86PcXbpPR0CsqaQ=s48-c-k-c0xffffffff-no-rj-mo",
 
                         }
                     }
                 ]}
+            />
+            <Message avatar="https://sun9-28.userapi.com/c824203/v824203506/33e8c/kxUu_RDip1A.jpg?ava=1"
+                     date={new Date()}
+                     audio="https://notificationsounds.com/soundfiles/069059b7ef840f0c74a814ec9237b6ec/file-de_vuvuzela-power-down.mp3"
             />
             {/*<Message avatar="https://sun9-18.userapi.com/c851336/v851336258/16747e/7HsUkZOrEfo.jpg?ava=1"*/}
                      {/*text="Салам братка!"*/}
