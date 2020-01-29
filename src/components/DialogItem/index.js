@@ -15,7 +15,7 @@ const getMessageTime = created_at => {
     } else {
         return format(
             new Date(created_at),
-            'dd.MM.YYYY'
+            'dd.MM.yyyy'
         )
     }
 };

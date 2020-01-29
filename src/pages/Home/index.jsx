@@ -1,78 +1,52 @@
 import React from 'react';
+import {Button, Icon, Input} from "antd";
 
-import {Dialogs, Message} from "../../components";
+import {ChatInput, Messages, Status} from "../../components";
+import {Dialogs} from "../../containers";
 import './Home.scss';
+
+import dialogsJSON from "../../dialogs"
 
 const Home = () => {
     return (
         <section className="home">
-            <Dialogs
-                userId={0}
-                items={[
-                    {
-                        _id: "0fa7e7578aba1356bc6c0b021921efb1",
-                        text: 'Если хочешь опровергнуть какую-нибудь глупость, не надо ее отрицать. Не надо. Доведи ее до абсурда. И тогда, знаете, все получится.',
-                        created_at: new Date(),
-                        user: {
-                            _id: "0fa7e7578aba1356bc6c0b021921efb1",
-                            fullname: "Вован Зеленый",
-                            avatar: null,
+            <div className="chat">
+              <div className="chat__sidebar">
+                <div className="chat__sidebar-header">
+                  <div>
+                    <Icon type="team" />
+                    <span>Список диалогов</span>
+                  </div>
 
-                        }
-                    },
-                    {
-                        _id: "0fa7e7578aba1356bc6c0b021921efb1",
-                        text: 'Привет! Как дела?',
-                        created_at: new Date(),
-                        user: {
-                            _id: "0fa7e7578aba1356bc6c0b021921efb1",
-                            fullname: "Леша Долматов",
-                            avatar: "https://yt3.ggpht.com/a/AGF-l78kifEeiIVi5CiCO0CmTYz86PcXbpPR0CsqaQ=s48-c-k-c0xffffffff-no-rj-mo",
+                  <Button type="link" shape="circle" icon="form" />
+                </div>
 
-                        }
-                    }
-                ]}
-            />
-            <Message avatar="https://sun9-28.userapi.com/c824203/v824203506/33e8c/kxUu_RDip1A.jpg?ava=1"
-                     date={new Date()}
-                     audio="https://notificationsounds.com/soundfiles/069059b7ef840f0c74a814ec9237b6ec/file-de_vuvuzela-power-down.mp3"
-            />
-            {/*<Message avatar="https://sun9-18.userapi.com/c851336/v851336258/16747e/7HsUkZOrEfo.jpg?ava=1"*/}
-                     {/*text="Салам братка!"*/}
-                     {/*date={new Date()}*/}
-                     {/*isMe={false}*/}
-                     {/*attachments={[*/}
-                         {/*{*/}
-                             {/*filename: 'image.jpg',*/}
-                             {/*url: 'https://i.picsum.photos/id/570/100/100.jpg'*/}
-                         {/*},*/}
-                         {/*{*/}
-                             {/*filename: 'image.jpg',*/}
-                             {/*url: 'https://i.picsum.photos/id/67/100/100.jpg'*/}
-                         {/*},*/}
-                         {/*{*/}
-                             {/*filename: 'image.jpg',*/}
-                             {/*url: 'https://i.picsum.photos/id/551/100/100.jpg'*/}
-                         {/*}*/}
-                     {/*]}*/}
-            {/*/>*/}
-            {/*<Message avatar="https://sun9-28.userapi.com/c824203/v824203506/33e8c/kxUu_RDip1A.jpg?ava=1"*/}
-                     {/*text="Приветик тебе букетик"*/}
-                     {/*date={new Date()}*/}
-                     {/*isMe={true}*/}
-                     {/*isReaded={false}*/}
-            {/*/>*/}
-            {/*<Message avatar="https://sun9-18.userapi.com/c851336/v851336258/16747e/7HsUkZOrEfo.jpg?ava=1"*/}
-                     {/*attachments={[*/}
-                         {/*{*/}
-                             {/*filename: 'image.jpg',*/}
-                             {/*url: 'https://i.picsum.photos/id/570/100/100.jpg'*/}
-                         {/*}*/}
-                     {/*]}*/}
-            {/*/>*/}
-            {/*<Message avatar="https://sun9-18.userapi.com/c851336/v851336258/16747e/7HsUkZOrEfo.jpg?ava=1"*/}
-                     {/*isTyping*/}
-            {/*/>*/}
+                <div className="chat__sidebar-dialogs">
+                  <Dialogs userId={0} items={dialogsJSON} />
+                </div>
+              </div>
+
+              <div className="chat__dialog">
+                <div className="chat__dialog-header">
+                  <div />
+                  <div className="chat__dialog-header-center">
+                    <b className="chat__dialog-header-username">Гай Юлий Цезарь</b>
+                    <div className="chat__dialog-header-status">
+                      <Status online />
+                    </div>
+                  </div>
+                  <Button type="link" shape="circle" icon="ellipsis" />
+                </div>
+
+                <div className="chat__dialog-messages">
+                  <Messages />
+                </div>
+
+                <div className="chat__dialog-input">
+                  <ChatInput />
+                </div>
+              </div>
+            </div>
         </section>
     )
 }
