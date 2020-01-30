@@ -1,22 +1,22 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import {Empty} from "antd";
+import {Empty, Spin} from "antd";
+import classNames from 'classnames';
 
 import {Message} from "../index";
+import "./Messages.scss";
 
-const Messages = ({items}) => {
-    return (
-        items ? (
-                <div>
-                    {items.map(item => <Message avatar="https://sun9-28.userapi.com/c824203/v824203506/33e8c/kxUu_RDip1A.jpg?ava=1"
-                                 date={new Date()}
-                                 audio="https://notificationsounds.com/soundfiles/069059b7ef840f0c74a814ec9237b6ec/file-de_vuvuzela-power-down.mp3"
-                    />)}
-                </div>
-            ) : (
-                <Empty description="Откройте диалог"/>
-        )
-    )
+const Messages = ({isLoading, items, blockRef}) => {
+    return (<div ref={blockRef} className={classNames("messages", {'messages--loading': isLoading})}>
+                {
+                    isLoading ? (
+                        <Spin size="large" tip="Загрузка сообщений..."></Spin>
+                    ) : items && !isLoading ? (
+                        items.length > 0 ? (
+                            items.map(item => <Message key={item._id} {...item}/>)) : (<Empty description="Диалог пуст"/>)
+                        ) : (<Empty description="Откройте диалог"/>)
+                }
+            </div>)
 };
 
 Messages.propTypes = {

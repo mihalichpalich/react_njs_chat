@@ -2,8 +2,9 @@ import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import {Time, IconReaded} from "../index";
+import {Time, IconReaded, Avatar} from "../index";
 import {convertCurrentTime} from "../../utils/helpers/index";
+import {Empty, Spin, Alert} from "antd";
 import './Message.scss'
 import waveSvg from '../../assets/img/wave.svg'
 import playSvg from '../../assets/img/play.svg'
@@ -74,7 +75,7 @@ const Message = ({avatar, user, text, date, isMe, isReaded, attachments, isTypin
             <div className="message__content">
                 <IconReaded isMe={isMe} isReaded={isReaded}/>
                 <div className="message__avatar">
-                    <img src={avatar} alt={`Avatar ${user.fullname}`}/>
+                    <Avatar user={user}/>
                 </div>
                 <div className="message__info">
                     {(audio || text || isTyping)
