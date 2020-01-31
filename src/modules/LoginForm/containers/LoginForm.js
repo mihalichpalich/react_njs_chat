@@ -10,10 +10,7 @@ export default withFormik({
   }),
   validate: values => {
     let errors = {};
-    const validate = validateForm({isAuth: true});
-
     validateForm({isAuth: true, values, errors});
-
     return errors;
   },
 

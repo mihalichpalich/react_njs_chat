@@ -1,10 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import {Emoji} from 'emoji-mart'
 
 import {Time, IconReaded, Avatar} from "../index";
 import {convertCurrentTime} from "../../utils/helpers/index";
-import {Empty, Spin, Alert} from "antd";
 import './Message.scss'
 import waveSvg from '../../assets/img/wave.svg'
 import playSvg from '../../assets/img/play.svg'

@@ -2,7 +2,6 @@ import React from 'react';
 import {Route} from "react-router-dom";
 
 import {Auth, Home} from './pages';
-import {LoginForm} from "./modules";
 
 function App() {
   return (

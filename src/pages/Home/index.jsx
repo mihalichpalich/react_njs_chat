@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Icon, Input} from "antd";
+import {Button, Icon} from "antd";
 
 import {ChatInput, Status} from "../../components";
 import {Dialogs, Messages} from "../../containers";

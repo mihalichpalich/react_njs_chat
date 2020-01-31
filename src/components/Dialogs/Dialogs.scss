@@ -17,6 +17,15 @@
     display: flex;
     margin-bottom: 20px;
 
+    &:hover {
+      background-color: #f3f7ff;
+    }
+
+    &--selected, &--selected:hover {
+      background-color: #1890ff;
+      color: #fff !important;
+    }
+
     &-avatar {
       position: relative;
       flex: 0 0 40px;
@@ -66,14 +75,16 @@
       }
       &-bottom {
         position: relative;
+
         p {
-          opacity: 0.5;
+          opacity: 0.7;
           text-overflow: ellipsis;
           overflow: hidden;
           width: 220px;
           height: 1.2em;
           white-space: nowrap;
         }
+
         &-count {
           position: absolute;
           right: 0;
@@ -91,6 +102,7 @@
           line-height: 17px;
           box-shadow: 0 0 0px 3px #fff;
         }
+
         .message__icon-readed {
           bottom: 0;
           left: auto;
