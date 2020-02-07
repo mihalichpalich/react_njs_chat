@@ -1,7 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import {Emoji} from 'emoji-mart'
 
 import {Time, IconReaded, Avatar} from "../index";
 import {convertCurrentTime} from "../../utils/helpers/index";

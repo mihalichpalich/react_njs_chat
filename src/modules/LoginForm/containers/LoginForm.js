@@ -1,6 +1,8 @@
 import {withFormik} from "formik";
+
 import LoginForm from '../components/LoginForm';
 import validateForm from '../../../utils/validate';
+import axios from '../../../core/axios';
 
 export default withFormik({
   enableReinitialize: true,
@@ -13,12 +15,10 @@ export default withFormik({
     validateForm({isAuth: true, values, errors});
     return errors;
   },
-
   handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+    return axios.post('/user/login', values).then(({data}) => {
+      console.log(data)
+    })
   },
 
   displayName: 'LoginForm',
